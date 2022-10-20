@@ -55,16 +55,16 @@ const deleteInventory = async (req: any, res: any) => {
 };
 //FETCH
 const fetchInventory = async (req: any, res: any) => {
-  //   try {
-  //     let check = await ProductModel.findOne({ _id: req.body._id });
-  //     if (check) {
-  //       res.status(200).send({ msg: "Product fetched!", check });
-  //     } else {
-  //       res.status(404).send({ msg: "Product not found", data: check });
-  //     }
-  //   } catch (e) {
-  //     res.status(500).send({ msg: "Internal Server Error", error: e });
-  //   }
+  try {
+    let check = await ProductModel.findOne({ _id: req.body._id });
+    if (check) {
+      res.status(200).send({ msg: "Product fetched!", check });
+    } else {
+      res.status(404).send({ msg: "Product not found", data: check });
+    }
+  } catch (e) {
+    res.status(500).send({ msg: "Internal Server Error", error: e });
+  }
 };
 
 export { saveInventory, updateInventory, deleteInventory, fetchInventory };
